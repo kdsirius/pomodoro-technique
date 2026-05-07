@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --work-color: #4caf50;
+  --break-color: #2196f3;
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #16213e;
+  --bg-card: #0f3460;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --current-color: var(--work-color);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+.container {
+  width: 360px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+/* Title bar */
+.title-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  -webkit-app-region: drag;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.btn-close {
+  -webkit-app-region: no-drag;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0 6px;
+  line-height: 1;
+}
+.btn-close:hover {
+  color: #ff5252;
+}
+
+/* Mode tabs */
+.mode-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  -webkit-app-region: no-drag;
+}
+
+.tab {
+  background: var(--bg-secondary);
+  border: 2px solid transparent;
+  color: var(--text-secondary);
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.tab.active {
+  border-color: var(--current-color);
+  color: var(--current-color);
+}
+.tab:hover {
+  background: var(--bg-card);
+}
+
+/* Timer ring */
+.timer-ring {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 16px 0 32px;
+}
+
+.timer-ring svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%;
+}
+
+.ring-bg {
+  fill: none;
+  stroke: var(--bg-secondary);
+  stroke-width: 8;
+}
+
+.ring-progress {
+  fill: none;
+  stroke: var(--current-color);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 565.49;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.5s ease, stroke 0.3s ease;
+}
+
+.timer-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#timerText {
+  font-size: 48px;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 2px;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 16px;
+  -webkit-app-region: no-drag;
+}
+
+.btn {
+  padding: 10px 28px;
+  border: none;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
+
+.btn-start {
+  background: var(--current-color);
+  color: #fff;
+}
+.btn-start:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.btn-pause {
+  background: #ff9800;
+  color: #fff;
+}
+.btn-pause:hover {
+  opacity: 0.85;
+  transform: scale(1.03);
+}
+
+.btn-reset {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+.btn-reset:hover {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.hidden {
+  display: none !important;
+}

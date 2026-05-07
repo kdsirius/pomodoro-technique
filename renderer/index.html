@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>番茄钟</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="title-bar">
+      <span class="title">番茄钟</span>
+      <button class="btn-close" id="btnClose">&times;</button>
+    </div>
+
+    <div class="mode-tabs">
+      <button class="tab active" data-mode="work">工作</button>
+      <button class="tab" data-mode="break">休息</button>
+    </div>
+
+    <div class="timer-ring">
+      <svg viewBox="0 0 200 200">
+        <circle class="ring-bg" cx="100" cy="100" r="90" />
+        <circle class="ring-progress" id="ringProgress" cx="100" cy="100" r="90" />
+      </svg>
+      <div class="timer-display">
+        <span id="timerText">25:00</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-start" id="btnStart">开始</button>
+      <button class="btn btn-pause hidden" id="btnPause">暂停</button>
+      <button class="btn btn-reset" id="btnReset">重置</button>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
