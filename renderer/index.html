@@ -4,34 +4,99 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>番茄钟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- 背景光斑层 -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
   <div class="container">
+    <!-- 顶部标题栏 -->
     <div class="title-bar">
       <span class="title">番茄钟</span>
-      <button class="btn-close" id="btnClose">&times;</button>
+      <button class="btn-close" id="btnClose">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <path d="M1 1L9 9M1 9L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
 
-    <div class="mode-tabs">
-      <button class="tab active" data-mode="work">工作</button>
-      <button class="tab" data-mode="break">休息</button>
-    </div>
-
-    <div class="timer-ring">
-      <svg viewBox="0 0 200 200">
-        <circle class="ring-bg" cx="100" cy="100" r="90" />
-        <circle class="ring-progress" id="ringProgress" cx="100" cy="100" r="90" />
-      </svg>
-      <div class="timer-display">
-        <span id="timerText">25:00</span>
+    <!-- 模式切换 -->
+    <div class="glass-card mode-card">
+      <div class="mode-tabs">
+        <button class="tab active" data-mode="work">
+          <svg class="tab-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="7" cy="7" r="5.5"/>
+            <polyline points="7,4 7,7 9,8.5"/>
+          </svg>
+          专注
+        </button>
+        <button class="tab" data-mode="break">
+          <svg class="tab-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M2 7.5a5 5 0 0 1 10 0"/>
+            <circle cx="5" cy="8" r="0.5" fill="currentColor"/>
+            <circle cx="7" cy="6" r="0.5" fill="currentColor"/>
+            <circle cx="9" cy="8" r="0.5" fill="currentColor"/>
+          </svg>
+          休息
+        </button>
       </div>
     </div>
 
-    <div class="controls">
-      <button class="btn btn-start" id="btnStart">开始</button>
-      <button class="btn btn-pause hidden" id="btnPause">暂停</button>
-      <button class="btn btn-reset" id="btnReset">重置</button>
+    <!-- 计时器主体 -->
+    <div class="timer-section">
+      <div class="timer-ring">
+        <div class="ring-glow"></div>
+        <svg viewBox="0 0 220 220">
+          <defs>
+            <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" class="ring-grad-start"/>
+              <stop offset="100%" class="ring-grad-end"/>
+            </linearGradient>
+          </defs>
+          <circle class="ring-bg" cx="110" cy="110" r="96" />
+          <circle class="ring-progress" id="ringProgress" cx="110" cy="110" r="96" stroke="url(#ringGrad)" />
+        </svg>
+        <div class="timer-display">
+          <span id="timerText">25:00</span>
+          <span class="timer-label">准备开始</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 控制按钮 -->
+    <div class="glass-card controls-card">
+      <div class="controls">
+        <button class="btn btn-start" id="btnStart">
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <polygon points="4.5,2 13,8 4.5,14"/>
+          </svg>
+          开始
+        </button>
+        <button class="btn btn-pause hidden" id="btnPause">
+          <svg class="btn-icon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <rect x="3" y="2" width="3.5" height="12" rx="1"/>
+            <rect x="9.5" y="2" width="3.5" height="12" rx="1"/>
+          </svg>
+          暂停
+        </button>
+        <button class="btn btn-reset" id="btnReset">
+          <svg class="btn-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M1 7a6 6 0 0 1 10.5-4"/>
+            <path d="M13 7a6 6 0 0 1-10.5 4"/>
+            <path d="M12 1v3h-3"/>
+            <path d="M2 13v-3h3"/>
+          </svg>
+          重置
+        </button>
+      </div>
     </div>
   </div>
 
