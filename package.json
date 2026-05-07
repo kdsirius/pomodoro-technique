@@ -1,12 +1,15 @@
 {
   "name": "pomodoro-timer",
   "version": "1.0.0",
-  "description": "桌面番茄钟应用",
+  "description": "桌面番茄钟应用 - 液态玻璃风格",
   "main": "main.js",
+  "author": "kdsirius",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-packager . 番茄钟 --platform=win32 --arch=x64 --out=dist --overwrite --ignore=\"^/dist\" --ignore=\"^/\\.claude\" --ignore=\"^/CLAUDE\\.md\" --asar"
   },
   "devDependencies": {
-    "electron": "^28.0.0"
+    "electron": "^28.0.0",
+    "electron-packager": "^17.1.2"
   }
 }
